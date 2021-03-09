@@ -3,6 +3,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: nginx-helloworld-deployment
+  namespace: ishelloworldonly
 spec:
   selector:
     matchLabels:
@@ -18,3 +19,14 @@ spec:
         image: docker.io/jchijiok/helloworld:v1.0.0
         ports:
         - containerPort: 80
+        args:
+        - /bin/sh
+        - -c
+        - touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600
+        livenessProbe: # Liveness and Readines - if can't start serving traffic right away & takes between two to thirty seconds to become ready.
+          exec:
+            command:  
+            - cat
+            - /tmp/healthy
+          initialDelaySeconds: 6  # Liveness: Tells the kubelet to wait 6 seconds before performing the first probe.
+          periodSeconds: 6  # Liveness: Kubelet performs a liveness probe every 6 seconds when told.
