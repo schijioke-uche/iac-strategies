@@ -5,6 +5,6 @@
 
 ## Result
 
-- Browse to <http://localhost:8080> to view the default web page served by Nginx in the running container.
+- Browse to <http://localhost:8080> to view the default web page served by the application docker image in the running container.
 - You should see a page similar to this below:
 ![Docker test image output](hello_world_image_result.png)
