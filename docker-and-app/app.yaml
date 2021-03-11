@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: nginx-helloworld
-  replicas: 2 # tells deployment to run 2 pods matching the template - @Jeffrey Solomon Chijioke-uche(MSIT,MSIS, United States)
+  replicas: 2 # tells deployment to run 2 pods matching the pod template - @Jeffrey Solomon Chijioke-uche(MSIT,MSIS, United States)
   template:
     metadata:
       labels:
