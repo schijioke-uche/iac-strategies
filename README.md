@@ -1,6 +1,7 @@
 # Kubernetes and Container Solution
--Kubernetes (Azure Kubernetes Services)
--Docker Images 
--Nginx App
+- Kubernetes (Azure Kubernetes Services)
+- Docker Images 
+- Terraform
 
---Jeffrey Solomon Chijioke-uche
+## Author
+- Jeffrey Solomon Chijioke-uche (MSIT, MSIS)
