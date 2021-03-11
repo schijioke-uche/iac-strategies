@@ -1,6 +1,6 @@
 # Kubernetes and Container Solution
-- Kubernetes (Azure Kubernetes Services)
-- Docker Images 
+- Kubernetes
+- Docker 
 - Terraform
 
 ## Author
