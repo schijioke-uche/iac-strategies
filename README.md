@@ -4,4 +4,4 @@
 - Terraform
 
 ## Author
-- Jeffrey Solomon Chijioke-uche (MSIT, MSIS)
+- Jeffrey Solomon Chijioke-uche (MSIT, MSIS) - United States
