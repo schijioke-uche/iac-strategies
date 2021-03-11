@@ -1,6 +1,6 @@
 # Test the Docker Image
 
-- On your cmd or terminal: Run this commands
+- On your cmd or terminal: Run these commands
 - docker build -t jchijiok/helloworld:v1.0.0 .
 - docker run -it --rm -p 8080:80 jchijiok/helloworld:v1.0.0
 
