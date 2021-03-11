@@ -1,4 +1,4 @@
-# Kubernetes and Container Solution
+# Infrastructure as Code Strategies in Cloud Computing
 - Kubernetes
 - Docker 
 - Terraform
