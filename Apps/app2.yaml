@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: helloworld-h2
+  name: helloworld-h2
+  namespace: kube-dit
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: helloworld-h2
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: helloworld-h2
+    spec:
+      containers:
+      - image: docker.io/jchijiok/helloworld:v1.1.0
+        name: helloworld-h2
+        ports:
+        - containerPort: 80
+        args:
+        - /bin/sh
+        - -c
+        - touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600
+        livenessProbe: # Liveness and Readines   
+          exec:
+            command:  
+            - cat
+            - /tmp/healthy
+          initialDelaySeconds: 6  # Liveness: Tells the kubelet to wait 6 seconds before performing the first probe.
+          periodSeconds: 6  # Liveness: Kubelet performs a liveness probe every 6 seconds when told.
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-h2-svc
+  namespace: kube-dit
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: helloworld-h2
