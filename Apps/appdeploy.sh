@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+#Set the script for EOL
+sed -i 's/\r//' appdeploy.sh
+
 #Author:  Jeffrey Solomon Chijioke-Uche (MSIT, MSIS) - United States.
 #LinkedIn:  
 #Softwareid:  MZ-68922876-0004
@@ -23,6 +26,18 @@
 #-Az aks plugin.
 #=============================================================================
 
+function sa(){
+#Service Account: [DO NOT USE SERVICE PRINCIPAL]
+SA_USR="{SUPPLY}"
+SA_PWD="{SUPPLY}"
+}
+
+function authenticate(){
+#Authenticate
+az login -u $SA_USR --p $SA_PWD
+cProcesswait
+}
+
 #Param:
 function Input(){
 AKSCLUSTERRGROUP="{SUPPLY-YOUR-INFO}"
@@ -45,12 +60,12 @@ azure
 
 #Process Wait:
 function nProcesswait(){
-sleep 10m & PID=$! 
+sleep 5s & PID=$! 
 echo -e "Waiting for created namespace to be ready..."
 printf "["
 while kill -0 $PID 2> /dev/null; do 
     printf  "▓"
-    sleep 10s
+    sleep 2s
 done
 printf "] ${GREEN}done!${NOCOLOR}" 
 echo -e ""
@@ -58,12 +73,12 @@ echo -e ""
 
 #Process Wait:
 function cProcesswait(){
-sleep 10m & PID=$! 
+sleep 7s & PID=$! 
 echo -e "Waiting for created app to be ready..."
 printf "["
 while kill -0 $PID 2> /dev/null; do 
     printf  "▓"
-    sleep 10s
+    sleep 2s
 done
 printf "] ${GREEN}done!${NOCOLOR}" 
 echo -e ""
@@ -101,6 +116,8 @@ function azure(){
  I N F R A S T R U C T U R E  AS  C O D E  D E P L O Y M E N T ${NOCOLOR}"
 }
 #Exec::::::::::::::::::::::#
+sa
+authenticate
 Input
 Indicators
 Algorithm

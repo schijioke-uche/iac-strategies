@@ -1,5 +1,8 @@
 
-#!/usr/bin/env bash
+#!/bin/bash
+
+#Set the script for EOL
+sed -i 's/\r//' terradeploy.sh
 
 #Author:  Jeffrey Solomon Chijioke-Uche (MSIT, MSIS) - United States
 #Softwareid:  MZ-68922876-0004
@@ -22,12 +25,17 @@
 #-Az aks plugin.
 #===================================================================================
 
-
-function input(){
-#input remote state storage path
-REMOTE_STATE_ENDPOINT="https://{STORAGEACCOUNTNAME}.blob.core.windows.net/{CONTAINERNAME}/{ACCOUNTKEY}"
+function sa(){
+#Service Account: [DO NOT USE SERVICE PRINCIPAL]
+SA_USR="{SUPPLY}"
+SA_PWD="{SUPPLY}"
 }
 
+function authenticate(){
+#Authenticate
+az login -u $SA_USR --p $SA_PWD
+cProcesswait
+}
 
 function init(){
 #Initiate
@@ -52,20 +60,20 @@ cProcesswait
 
 function apply(){
 #Apply
-terraform apply -auto-approve -var-file="aks.dev.tfvars" $REMOTE_STATE_ENDPOINT
+terraform apply -auto-approve -input=false  
 cProcesswait
+azure
 }
-
 
 
 #Process Wait:
 function cProcesswait(){
-sleep 10m & PID=$! 
+sleep 10s & PID=$! 
 echo -e "Please wait..."
 printf "["
 while kill -0 $PID 2> /dev/null; do 
     printf  "▓"
-    sleep 10s
+    sleep 2
 done
 printf "] ${GREEN}done!${NOCOLOR}" 
 echo -e ""
@@ -103,9 +111,11 @@ function azure(){
  I N F R A S T R U C T U R E  AS  C O D E  D E P L O Y M E N T ${NOCOLOR}"
 }
 #Exec::::::::::::::::::::::#
+Indicators
+sa
+authenticate
 input
 init
 plan
 apply
-azure
 #Exec::::::::::::::::::::::#
