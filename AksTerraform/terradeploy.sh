@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-#Set the script for EOL
+#Set the script for EOL: If you change the script name - update nextLine below
 sed -i 's/\r//' terradeploy.sh
 
 #Author:  Jeffrey Solomon Chijioke-Uche (MSIT, MSIS) - United States
@@ -26,9 +26,9 @@ sed -i 's/\r//' terradeploy.sh
 #===================================================================================
 
 function sa(){
-#Service Account: [DO NOT USE SERVICE PRINCIPAL]
-SA_USR="{SUPPLY}"
-SA_PWD="{SUPPLY}"
+#Service Account: [DO NOT USE SERVICE PRINCIPAL - SUPPLY YOUR CREDENTIALS{}]
+SA_USR="{}"
+SA_PWD="{}"
 }
 
 function authenticate(){
@@ -114,8 +114,8 @@ function azure(){
 Indicators
 sa
 authenticate
-input
 init
+validate
 plan
 apply
 #Exec::::::::::::::::::::::#
