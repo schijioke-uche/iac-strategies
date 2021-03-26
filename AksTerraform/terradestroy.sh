@@ -9,7 +9,7 @@ sed -i 's/\r//' terradestroy.sh
 #Usage: Terraform Auto Deployment to Azure
 #Model: AzureRM 1.36.0 = 2.0+
 #Knowledgebase Number:  [098126-2021]
-#Strategy for updating Docker image when required.
+#Strategy for destroying Terraform Algorithm.
           
 #     /\    (C) J E F F R E Y   C H I J I O K E - U C HE
 #    /  \    _____   _ _  ___ _
@@ -81,15 +81,15 @@ function Indicators(){
 }
 #END: Optum-Z9773-2019
 function azure(){
-  echo -e "${GREEN}Azure Cloud Deployment Completed!${NOCOLOR}"
+  echo -e "${GREEN}Terraform Destruction Completed!${NOCOLOR}"
   echo -e "${GREEN}
-    /---\   M I C R O S O F T                             
+    /---\   T E R R A F O R M                             
    /  _  \ __________ _________   ____  
   /  /_\  \\___   /  |  \_  __ \_/ __ \ 
  /    |    \/    /|  |  /|  | \/\  ___/ 
  \____|__  /_____ \____/ |__|    \___  >
         \/      \/                  \/ 
- I N F R A S T R U C T U R E  AS  C O D E  D E P L O Y M E N T ${NOCOLOR}"
+ I N F R A S T R U C T U R E  AS  C O D E  T E C H N O L O G Y ${NOCOLOR}"
 }
 #Exec::::::::::::::::::::::#
 Indicators
