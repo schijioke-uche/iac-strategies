@@ -12,7 +12,7 @@ sed -i 's/\r//' appdeploy.sh
 #Usage: Strategy for deploying kubernetes pods via script required.
 #License: MIT License
           
-#     /\    M I C R O S O F T (C)
+#     /\    (C) J E F F R E Y   C H I J I O K E - U C H E
 #    /  \    _____   _ _  ___ _
 #   / /\ \  |_  / | | | \'__/ _\
 #  / ____ \  / /| |_| | | |  __/
@@ -27,14 +27,15 @@ sed -i 's/\r//' appdeploy.sh
 #=============================================================================
 
 function sa(){
-#Service Account: [DO NOT USE SERVICE PRINCIPAL]
-SA_USR="{SUPPLY}"
-SA_PWD="{SUPPLY}"
+#Service Account: [DO NOT USE SERVICE-PRINCIPAL CREDENTIALS{}] [USE USER-PRINCIPAL CREDENTIALS{}]
+SA_USR="{}"
+SA_PWD="{}"
+SA_TN="{}"
 }
 
 function authenticate(){
 #Authenticate
-az login -u $SA_USR --p $SA_PWD
+az login -u $SA_USR --p $SA_PWD --tenant $SA_TN
 cProcesswait
 }
 

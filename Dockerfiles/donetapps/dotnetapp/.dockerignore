@@ -2,6 +2,7 @@
 **/bin/
 **/obj/
 **/out/
+/isSecureVault/
 
 # files
 Dockerfile*
@@ -10,3 +11,4 @@ Dockerfile*
 **/*.ps1
 **/*.cmd
 **/*.sh
+**/*.txt

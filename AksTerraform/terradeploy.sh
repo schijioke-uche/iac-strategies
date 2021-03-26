@@ -11,7 +11,7 @@ sed -i 's/\r//' terradeploy.sh
 #Knowledgebase Number:  [098126-2021]
 #Strategy for updating Docker image when required.
           
-#     /\    M I C R O S O F T (C)
+#     /\    (C) J E F F R E Y   C H I J I O K E - U C HE
 #    /  \    _____   _ _  ___ _
 #   / /\ \  |_  / | | | \'__/ _\
 #  / ____ \  / /| |_| | | |  __/
@@ -26,14 +26,15 @@ sed -i 's/\r//' terradeploy.sh
 #===================================================================================
 
 function sa(){
-#Service Account: [DO NOT USE SERVICE PRINCIPAL - SUPPLY YOUR CREDENTIALS{}]
+#Service Account: [DO NOT USE SERVICE-PRINCIPAL CREDENTIALS{}] [USE USER-PRINCIPAL CREDENTIALS{}]
 SA_USR="{}"
 SA_PWD="{}"
+SA_TN="{}"
 }
 
 function authenticate(){
 #Authenticate
-az login -u $SA_USR --p $SA_PWD
+az login -u $SA_USR --p $SA_PWD --tenant $SA_TN 
 cProcesswait
 }
 

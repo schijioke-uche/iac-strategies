@@ -2,7 +2,9 @@
 **/bin/
 **/obj/
 **/out/
+/isSecureVault/
 
 # files
 Dockerfile*
 **/*.md
+**/*.txt
