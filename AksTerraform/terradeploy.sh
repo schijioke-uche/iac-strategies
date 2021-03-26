@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-#Set the script for EOL: If you change the script name - update nextLine below...
+#Set the script for EOL: If you change the script name - update nextLine below.
 sed -i 's/\r//' terradeploy.sh
 
 #Author:  Jeffrey Solomon Chijioke-Uche (MSIT, MSIS) - United States
