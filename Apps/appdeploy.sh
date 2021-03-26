@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#Set the script for EOL
+#Set the script for EOL: If you rename the script - updated the nextLine below
 sed -i 's/\r//' appdeploy.sh
 
 #Author:  Jeffrey Solomon Chijioke-Uche (MSIT, MSIS) - United States.
@@ -9,7 +9,7 @@ sed -i 's/\r//' appdeploy.sh
 #Usage: Terraform Auto Deployment to Azure
 #Model: AzureRM 1.36.0 = 2.0+
 #Knowledgebase Number:  [098126-2021]
-#Usage: Strategy for deploying kubernetes pods via script required.
+#Usage: Strategy for deploying kubernetes pods.
 #License: MIT License
           
 #     /\    (C) J E F F R E Y   C H I J I O K E - U C H E
@@ -17,7 +17,6 @@ sed -i 's/\r//' appdeploy.sh
 #   / /\ \  |_  / | | | \'__/ _\
 #  / ____ \  / /| |_| | | |  __/
 # /_/    \_\/___|\__,_|_|  \___|  T E R R A F O R M   S O F T W A R E (R)
-
 
 #System Pre-requisites:
 #-Terraform plugin.
@@ -41,10 +40,10 @@ cProcesswait
 
 #Param:
 function Input(){
-AKSCLUSTERRGROUP="{SUPPLY-YOUR-INFO}"
-AKSCLUSTERNAME="{SUPPLY-YOUR-INFO}"
-AKSNAMESPACE="{SUPPLY-YOUR-INFO}"
-APPNAME="{SUPPLY-YOUR-INFO}"
+AKSCLUSTERRGROUP="{}"
+AKSCLUSTERNAME="{}"
+AKSNAMESPACE="{}"
+APPFILE="{}"
 }
 
 #Finite Algorithm
@@ -53,7 +52,7 @@ az aks get-credentials -g $AKSCLUSTERRGROUP -n $AKSCLUSTERNAME --admin
 kubectl config get-contexts
 kubectl create namespace $AKSNAMESPACE
 nProcesswait
-kubectl apply -f $APPNAME
+kubectl apply -f $APPFILE
 cProcesswait
 kubectl get pods -n $AKSNAMESPACE
 azure
@@ -104,22 +103,22 @@ function Indicators(){
   LIGHTCYAN='\033[1;36m'
   WHITE='\033[1;37m'
 }
-#END: Optum-Z9773-2019
+#END: ID-Z9773-2019
 function azure(){
-  echo -e "${GREEN}Azure Cloud Deployment Completed!${NOCOLOR}"
+  echo -e "${GREEN}Kubernetes App Deployment Completed!${NOCOLOR}"
   echo -e "${GREEN}
-    /---\   M I C R O S O F T                             
+    /---\   K U B E R N E T E S                             
    /  _  \ __________ _________   ____  
   /  /_\  \\___   /  |  \_  __ \_/ __ \ 
  /    |    \/    /|  |  /|  | \/\  ___/ 
  \____|__  /_____ \____/ |__|    \___  >
         \/      \/                  \/ 
- I N F R A S T R U C T U R E  AS  C O D E  D E P L O Y M E N T ${NOCOLOR}"
+ I N F R A S T R U C T U R E  AS  C O D E  T E C H N O L O G Y ${NOCOLOR}"
 }
 #Exec::::::::::::::::::::::#
+Indicators
 sa
 authenticate
 Input
-Indicators
 Algorithm
 #Exec::::::::::::::::::::::#
