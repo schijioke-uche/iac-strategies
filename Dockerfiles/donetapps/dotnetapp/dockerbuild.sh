@@ -40,9 +40,9 @@ DOCKER_DOMAIN="{}"
 #==============================
 function isLogin(){
 #[DEVELOPMENT]
-#echo $DOCKER_PW | docker login -u $DOCKER_USER --password-stdin $DOCKER_DOMAIN
+echo $DOCKER_PW | docker login -u $DOCKER_USER --password-stdin $DOCKER_DOMAIN
 #[PRODUCTION]
-cat $DOCKER_SECUREPWDVAULTPATH | docker login -u $DOCKER_USER  --password-stdin $DOCKER_DOMAIN
+#cat $DOCKER_SECUREPWDVAULTPATH | docker login -u $DOCKER_USER  --password-stdin $DOCKER_DOMAIN
 }
 
 #============================
