@@ -30,11 +30,13 @@ function sa(){
 SA_USR="{}"
 SA_PWD="{}"
 SA_TN="{}"
+SA_SUBID="{}"
 }
 
 function authenticate(){
 #Authenticate
-az login -u $SA_USR --p $SA_PWD --tenant $SA_TN 
+az login -u $SA_USR --p $SA_PWD --tenant $SA_TN
+az account set --subscription=$SA_SUBID 
 cProcesswait
 }
 
