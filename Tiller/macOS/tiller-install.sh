@@ -109,7 +109,7 @@ function dataPkg(){
  if [  -z "$HELM_VERSION" ] || [  "$HELM_VERSION" != "2.15.2"  ] || [  "$HELM_VERSION" != "2.17.0" ]
     then
       echo -e "Helm version expected 1 argument but invalid supplied - exit 1."
-      echo -e "Compatible Helm version for AGIC is v2.15.2 or v2.17.0 which contains tiller"
+      echo -e "Compatible Helm version for AGIC is v2.15.2 or v2.17.0 which contains tiller - Do not use v3"
       echo -e "Check the Algorithm documentation for compatible helm version..."
       echo -e "Process terminated..."
     else
