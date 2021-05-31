@@ -93,6 +93,6 @@ rm $AZP_TOKEN_FILE
 
 print_header "4. Running Azure Pipelines agent..."
 
-# `exec` the node runtime so it's aware of TERM and INT signals
-# AgentService.js understands how to handle agent self-update and restart
+# `exec` the node runtime so it's aware of TERM and INT signals.
+# AgentService.js understands how to handle agent self-update and restart.
 exec ./externals/node/bin/node ./bin/AgentService.js interactive
